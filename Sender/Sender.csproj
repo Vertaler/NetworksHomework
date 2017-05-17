@@ -35,6 +35,12 @@
   <ItemGroup>
     <Compile Include="Sender.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Networking\Networking.csproj">
+      <Project>{b0083386-5e59-485e-bd74-1a43d091af51}</Project>
+      <Name>Networking</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

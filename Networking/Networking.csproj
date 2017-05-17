@@ -37,6 +37,15 @@
     <Compile Include="MessageReciever.cs" />
     <Compile Include="MessageSender.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Algorithms\Algorithms.csproj">
+      <Project>{fa1d8f15-f6d1-49b8-8e06-c4a8267265a0}</Project>
+      <Name>Algorithms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
