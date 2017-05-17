@@ -16,9 +16,10 @@ namespace NetworksHomework.Networking
             var bytes = socket.Receive(_buffer, _buffer.Length, 0);
             while (bytes > 0)
             {
-                OnMessage?.Invoke(new Message(_buffer, bytes));
+                OnMessage?.Invoke(new Message(_buffer));
                 bytes = socket.Receive(_buffer, _buffer.Length, 0);
             }
+            socket.Close();
         }
 
         public void Listen()

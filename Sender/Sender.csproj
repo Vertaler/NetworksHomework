@@ -4,9 +4,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{867A7000-F556-46AC-8E0E-4F12B95AA2BA}</ProjectGuid>
+    <ProjectGuid>{E32A8FD1-5475-45CD-980A-F943D15B420D}</ProjectGuid>
     <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sender</RootNamespace>
     <AssemblyName>Sender</AssemblyName>
@@ -33,11 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Sender.cs" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Networking\Networking.csproj">
-      <Project>{b0083386-5e59-485e-bd74-1a43d091af51}</Project>
+      <Project>{B0083386-5E59-485E-BD74-1A43D091AF51}</Project>
       <Name>Networking</Name>
     </ProjectReference>
   </ItemGroup>

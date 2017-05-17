@@ -1,0 +1,7 @@
+D:\Rider Projects\NetworksHomework\Networking\obj\Debug\Networking.csprojResolveAssemblyReference.cache
+D:\Rider Projects\NetworksHomework\Networking\bin\Debug\Networking.dll
+D:\Rider Projects\NetworksHomework\Networking\bin\Debug\Networking.pdb
+D:\Rider Projects\NetworksHomework\Networking\bin\Debug\Algorithms.dll
+D:\Rider Projects\NetworksHomework\Networking\bin\Debug\Algorithms.pdb
+D:\Rider Projects\NetworksHomework\Networking\obj\Debug\Networking.dll
+D:\Rider Projects\NetworksHomework\Networking\obj\Debug\Networking.pdb

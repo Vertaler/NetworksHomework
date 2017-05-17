@@ -1,0 +1,7 @@
+D:\Rider Projects\NetworksHomework\Reciever\bin\Debug\Reciever.exe
+D:\Rider Projects\NetworksHomework\Reciever\bin\Debug\Reciever.pdb
+D:\Rider Projects\NetworksHomework\Reciever\bin\Debug\Networking.dll
+D:\Rider Projects\NetworksHomework\Reciever\bin\Debug\Networking.pdb
+D:\Rider Projects\NetworksHomework\Reciever\obj\Debug\Reciever.csprojResolveAssemblyReference.cache
+D:\Rider Projects\NetworksHomework\Reciever\obj\Debug\Reciever.exe
+D:\Rider Projects\NetworksHomework\Reciever\obj\Debug\Reciever.pdb

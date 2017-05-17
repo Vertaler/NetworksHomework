@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
+using System.Text;
 
 namespace NetworksHomework.Networking
 {
@@ -9,19 +11,23 @@ namespace NetworksHomework.Networking
 
         public const int BUFFER_SIZE = 1024;
         public byte[] Content => _buffer.Take(Size).ToArray();
-        public int Size { get; }
+        public int Size { get; private set; }
 
-        public Message()
+        private void _CheckBounds(byte[] message)
         {
-            _buffer = new byte[BUFFER_SIZE];
-            Size = 0;
+            if (message.Length > BUFFER_SIZE)
+            {
+                throw new ArgumentOutOfRangeException(
+                    $"Message length must be less than {BUFFER_SIZE}. Real length: {message.Length}"
+                );
+            }
         }
 
         public void AddBytes(byte[] bytes)
         {
-            var limit = bytes.Length + Size;
+            var newSize = bytes.Length + Size;
 
-            if (limit > _buffer.Length)
+            if (newSize > _buffer.Length)
             {
                 throw new Exception("Buffer overflow");
             }
@@ -30,31 +36,41 @@ namespace NetworksHomework.Networking
             {
                 _buffer[i + Size] = bytes[i];
             }
+            Size = newSize;
 
+        }
+
+        public void AddString(string str)
+        {
+            AddBytes(Encoding.ASCII.GetBytes(str));
+        }
+
+        public void AddString(string str, Encoding encoding)
+        {
+            AddBytes(encoding.GetBytes(str));
+        }
+
+        public string AsString()
+        {
+            return Encoding.ASCII.GetString(Content);
+        }
+
+        public Message()
+        {
+            _buffer = new byte[BUFFER_SIZE];
+            Size = 0;
         }
 
         public Message(byte[] message):this()
         {
-            if (message.Length > BUFFER_SIZE)
-            {
-                throw new ArgumentOutOfRangeException(
-                    $"Message length must be less than {BUFFER_SIZE}. Real length: {message.Length}"
-                );
-            }
-            for (int i = 0; i < message.Length; i++)
-            {
-                _buffer[i] = message[i];
-            }
+            _CheckBounds(message);
+            AddBytes(message);
         }
 
         public Message(string message):this()
         {
-            if (message.Length > BUFFER_SIZE)
-            {
-                throw new ArgumentOutOfRangeException(
-                    $"Message length must be less than {BUFFER_SIZE}. Real length: {message.Length}"
-                );
-            }
+            _CheckBounds(Encoding.ASCII.GetBytes(message));
+            AddString(message);
         }
     }
 }

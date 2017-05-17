@@ -1,0 +1,5 @@
+D:\Rider Projects\NetworksHomework\Algorithms\bin\Debug\Algorithms.dll
+D:\Rider Projects\NetworksHomework\Algorithms\bin\Debug\Algorithms.pdb
+D:\Rider Projects\NetworksHomework\Algorithms\obj\Debug\Algorithms.csprojResolveAssemblyReference.cache
+D:\Rider Projects\NetworksHomework\Algorithms\obj\Debug\Algorithms.dll
+D:\Rider Projects\NetworksHomework\Algorithms\obj\Debug\Algorithms.pdb
