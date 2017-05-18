@@ -34,11 +34,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ChecksumAlgorithms\CRC.cs" />
+    <Compile Include="CodingAlgorithms\Hamming.cs" />
     <Compile Include="MainInterfaces.cs" />
     <Compile Include="Utils\BitReader.cs" />
+    <Compile Include="Utils\MathUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CodingAlgorithms" />
     <Folder Include="CompressionAlgorithms" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

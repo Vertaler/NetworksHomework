@@ -1,7 +1,7 @@
 D:\Rider Projects\NetworksHomework\Sender\bin\Debug\Sender.exe
+D:\Rider Projects\NetworksHomework\Sender\bin\Debug\Sender.pdb
 D:\Rider Projects\NetworksHomework\Sender\bin\Debug\Algorithms.dll
 D:\Rider Projects\NetworksHomework\Sender\bin\Debug\Networking.dll
-D:\Rider Projects\NetworksHomework\Sender\bin\Debug\Sender.pdb
 D:\Rider Projects\NetworksHomework\Sender\bin\Debug\Algorithms.pdb
 D:\Rider Projects\NetworksHomework\Sender\bin\Debug\Networking.pdb
 D:\Rider Projects\NetworksHomework\Sender\obj\Debug\Sender.csprojResolveAssemblyReference.cache

@@ -1,5 +1,6 @@
 ﻿using System;
 using NetworksHomework.Algorithms.ChecksumAlgorithms;
+using NetworksHomework.Algorithms.CodingAlgorithms;
 using NetworksHomework.Networking;
 
 namespace NetworksHomework.Reciever
@@ -14,10 +15,12 @@ namespace NetworksHomework.Reciever
             {
 
                 Console.WriteLine($"Recieve: \"{message.AsString()}\"");
-                if (!message.ValidateChecksum(new CRC()))
-                {
-                    Console.WriteLine("Some error occured!");
-                }
+                //if (!message.ValidateChecksum(new CRC()))
+                //{
+                //    Console.WriteLine("Some error occured!");
+                //}
+                message.Decode(new Hamming());
+                Console.WriteLine($"After decoding: \"{message.AsString()}\"\n");
 
             };
             reciever.Listen();

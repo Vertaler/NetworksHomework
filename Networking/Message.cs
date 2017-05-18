@@ -53,7 +53,10 @@ namespace NetworksHomework.Networking
 
         public Message AddNoise()
         {
-            _buffer[0] ^= 7;//111
+            for (int i = 0; i < Size; i++)
+            {
+                _buffer[i] ^= 4;
+            }
             return this;
         }
 
@@ -91,6 +94,23 @@ namespace NetworksHomework.Networking
             );
             return recieved.SequenceEqual(computed);
         }
+
+        public Message Encode(ICodingAlgorithm coder)
+        {
+            var result = coder.Encode(Content);
+            Size = 0;
+            AddBytes(result);
+            return this;
+        }
+
+        public Message Decode(ICodingAlgorithm coder)
+        {
+            var result = coder.Decode(Content);
+            Size = 0;
+            AddBytes(result);
+            return this;
+        }
+
 
         public Message()
         {
