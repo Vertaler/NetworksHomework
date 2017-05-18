@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Algorithms\Algorithms.csproj">
+      <Project>{FA1D8F15-F6D1-49B8-8E06-C4A8267265A0}</Project>
+      <Name>Algorithms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Networking\Networking.csproj">
       <Project>{B0083386-5E59-485E-BD74-1A43D091AF51}</Project>
       <Name>Networking</Name>

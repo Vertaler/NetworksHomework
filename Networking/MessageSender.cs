@@ -19,8 +19,8 @@ namespace NetworksHomework.Networking
         public void Send(Message message)
         {
 
-            var writer = new BinaryWriter(_tcpClient.GetStream());
-            writer.Write(message.Content);
+            //var writer = new BinaryWriter();
+            _tcpClient.GetStream().Write(message.Content, 0, message.Size);
         }
     }
 }

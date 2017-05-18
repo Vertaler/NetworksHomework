@@ -1,4 +1,5 @@
 ﻿using System;
+using NetworksHomework.Algorithms.ChecksumAlgorithms;
 using NetworksHomework.Networking;
 
 namespace NetworksHomework.Sender
@@ -7,12 +8,14 @@ namespace NetworksHomework.Sender
     {
         public static void Main(string[] args)
         {
-            var message = Console.ReadLine();
+            var userInput = Console.ReadLine();
             var sender = new MessageSender(8080);
-            while (message != "stop")
+            while (userInput != "stop")
             {
-                sender.Send(new Message(message));
-                message = Console.ReadLine();
+                var message = new Message(userInput);
+                message.ComputeChecksum(new CRC()).AddNoise();
+                sender.Send(message);
+                userInput = Console.ReadLine();
             }
         }
     }

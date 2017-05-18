@@ -1,4 +1,5 @@
 ﻿using System;
+using NetworksHomework.Algorithms.ChecksumAlgorithms;
 using NetworksHomework.Networking;
 
 namespace NetworksHomework.Reciever
@@ -11,7 +12,13 @@ namespace NetworksHomework.Reciever
             var reciever = new MessageReciever(8080);
             reciever.OnMessage += (message) =>
             {
+
                 Console.WriteLine($"Recieve: \"{message.AsString()}\"");
+                if (!message.ValidateChecksum(new CRC()))
+                {
+                    Console.WriteLine("Some error occured!");
+                }
+
             };
             reciever.Listen();
         }

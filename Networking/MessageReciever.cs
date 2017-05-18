@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 
@@ -16,7 +17,7 @@ namespace NetworksHomework.Networking
             var bytes = socket.Receive(_buffer, _buffer.Length, 0);
             while (bytes > 0)
             {
-                OnMessage?.Invoke(new Message(_buffer));
+                OnMessage?.Invoke(new Message(_buffer.Take(bytes).ToArray()));
                 bytes = socket.Receive(_buffer, _buffer.Length, 0);
             }
             socket.Close();

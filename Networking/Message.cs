@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Linq;
 using System.Text;
+using NetworksHomework.Algorithms;
+using NetworksHomework.Algorithms.ChecksumAlgorithms;
 
 namespace NetworksHomework.Networking
 {
@@ -18,7 +20,7 @@ namespace NetworksHomework.Networking
             if (message.Length > BUFFER_SIZE)
             {
                 throw new ArgumentOutOfRangeException(
-                    $"Message length must be less than {BUFFER_SIZE}. Real length: {message.Length}"
+                    nameof(message)
                 );
             }
         }
@@ -32,12 +34,11 @@ namespace NetworksHomework.Networking
                 throw new Exception("Buffer overflow");
             }
 
-            for (int i = 0 ; i < bytes.Length; i++)
+            for (int i = 0; i < bytes.Length; i++)
             {
                 _buffer[i + Size] = bytes[i];
             }
             Size = newSize;
-
         }
 
         public void AddString(string str)
@@ -50,9 +51,45 @@ namespace NetworksHomework.Networking
             AddBytes(encoding.GetBytes(str));
         }
 
+        public Message AddNoise()
+        {
+            _buffer[0] ^= 7;//111
+            return this;
+        }
+
         public string AsString()
         {
             return Encoding.ASCII.GetString(Content);
+        }
+
+        public byte[] RemoveLastBytes(int bytesCount)
+        {
+            if (bytesCount > Size)
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(bytesCount)
+                );
+            }
+            var result = Content.Skip(Size - bytesCount).Take(bytesCount).ToArray();
+            Size -= bytesCount;
+            return result;
+        }
+
+        public Message ComputeChecksum(IChecksumAlgorithm algorithm)
+        {
+            var checksum = algorithm.ComputeChecksum(Content);
+            AddBytes(checksum);
+            return this;
+        }
+
+        public bool ValidateChecksum(IChecksumAlgorithm algorithm)
+        {
+            var recieved = RemoveLastBytes(algorithm.ChecksumSize);
+            var computed = algorithm.ComputeChecksum(Content);
+            Console.WriteLine(
+                $"Recieved CRC: {BitConverter.ToString(recieved)}\nComputed CRC: {BitConverter.ToString(computed)}"
+            );
+            return recieved.SequenceEqual(computed);
         }
 
         public Message()
@@ -61,13 +98,13 @@ namespace NetworksHomework.Networking
             Size = 0;
         }
 
-        public Message(byte[] message):this()
+        public Message(byte[] message) : this()
         {
             _CheckBounds(message);
             AddBytes(message);
         }
 
-        public Message(string message):this()
+        public Message(string message) : this()
         {
             _CheckBounds(Encoding.ASCII.GetBytes(message));
             AddString(message);

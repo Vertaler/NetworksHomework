@@ -33,10 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ChecksumAlgorithms\CRC.cs" />
     <Compile Include="MainInterfaces.cs" />
+    <Compile Include="Utils\BitReader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ChecksumAlgorithms" />
     <Folder Include="CodingAlgorithms" />
     <Folder Include="CompressionAlgorithms" />
   </ItemGroup>

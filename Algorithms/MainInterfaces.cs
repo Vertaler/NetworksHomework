@@ -3,6 +3,7 @@
     public interface IChecksumAlgorithm
     {
         byte[] ComputeChecksum(byte[] message);
+        int ChecksumSize { get; }
     }
 
     public interface ICompressionAlgorithm
