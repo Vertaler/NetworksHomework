@@ -89,9 +89,7 @@ namespace NetworksHomework.Networking
         {
             var recieved = RemoveLastBytes(algorithm.ChecksumSize);
             var computed = algorithm.ComputeChecksum(Content);
-            Console.WriteLine(
-                $"Recieved CRC: {BitConverter.ToString(recieved)}\nComputed CRC: {BitConverter.ToString(computed)}"
-            );
+
             return recieved.SequenceEqual(computed);
         }
 
@@ -106,6 +104,22 @@ namespace NetworksHomework.Networking
         public Message Decode(ICodingAlgorithm coder)
         {
             var result = coder.Decode(Content);
+            Size = 0;
+            AddBytes(result);
+            return this;
+        }
+
+        public Message Compress(ICompressionAlgorithm packer)
+        {
+            var result = packer.Compress(Content);
+            Size = 0;
+            AddBytes(result);
+            return this;
+        }
+
+        public Message Decompress(ICompressionAlgorithm packer)
+        {
+            var result = packer.Decompress(Content);
             Size = 0;
             AddBytes(result);
             return this;

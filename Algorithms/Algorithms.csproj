@@ -35,12 +35,10 @@
   <ItemGroup>
     <Compile Include="ChecksumAlgorithms\CRC.cs" />
     <Compile Include="CodingAlgorithms\Hamming.cs" />
+    <Compile Include="CompressionAlgorithms\LZW.cs" />
     <Compile Include="MainInterfaces.cs" />
     <Compile Include="Utils\BitReader.cs" />
     <Compile Include="Utils\MathUtils.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CompressionAlgorithms" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

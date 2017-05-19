@@ -1,6 +1,7 @@
 ﻿using System;
 using NetworksHomework.Algorithms.ChecksumAlgorithms;
 using NetworksHomework.Algorithms.CodingAlgorithms;
+using NetworksHomework.Algorithms.CompressionAlgorithms;
 using NetworksHomework.Networking;
 
 namespace NetworksHomework.Reciever
@@ -19,7 +20,8 @@ namespace NetworksHomework.Reciever
                 //{
                 //    Console.WriteLine("Some error occured!");
                 //}
-                message.Decode(new Hamming());
+                //message.Decode(new Hamming());
+                message.Decompress(new LZW());
                 Console.WriteLine($"After decoding: \"{message.AsString()}\"\n");
 
             };

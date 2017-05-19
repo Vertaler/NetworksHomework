@@ -1,6 +1,7 @@
 ﻿using System;
 using NetworksHomework.Algorithms.ChecksumAlgorithms;
 using NetworksHomework.Algorithms.CodingAlgorithms;
+using NetworksHomework.Algorithms.CompressionAlgorithms;
 using NetworksHomework.Networking;
 
 namespace NetworksHomework.Sender
@@ -15,7 +16,8 @@ namespace NetworksHomework.Sender
             {
                 var message = new Message(userInput);
                 //message.ComputeChecksum(new CRC()).AddNoise();
-                message.Encode(new Hamming()).AddNoise();
+                //message.Encode(new Hamming()).AddNoise();
+                message.Compress(new LZW());
                 sender.Send(message);
                 userInput = Console.ReadLine();
             }
