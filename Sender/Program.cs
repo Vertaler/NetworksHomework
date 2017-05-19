@@ -17,7 +17,7 @@ namespace NetworksHomework.Sender
                 var message = new Message(userInput);
                 //message.ComputeChecksum(new CRC()).AddNoise();
                 //message.Encode(new Hamming()).AddNoise();
-                message.Compress(new LZW());
+                message.Compress(new ShannonFano());
                 sender.Send(message);
                 userInput = Console.ReadLine();
             }

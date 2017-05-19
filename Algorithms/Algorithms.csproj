@@ -36,6 +36,7 @@
     <Compile Include="ChecksumAlgorithms\CRC.cs" />
     <Compile Include="CodingAlgorithms\Hamming.cs" />
     <Compile Include="CompressionAlgorithms\LZW.cs" />
+    <Compile Include="CompressionAlgorithms\ShannonFano.cs" />
     <Compile Include="MainInterfaces.cs" />
     <Compile Include="Utils\BitReader.cs" />
     <Compile Include="Utils\MathUtils.cs" />

@@ -21,7 +21,7 @@ namespace NetworksHomework.Reciever
                 //    Console.WriteLine("Some error occured!");
                 //}
                 //message.Decode(new Hamming());
-                message.Decompress(new LZW());
+                message.Decompress(new ShannonFano());
                 Console.WriteLine($"After decoding: \"{message.AsString()}\"\n");
 
             };
